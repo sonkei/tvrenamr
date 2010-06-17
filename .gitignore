@@ -1,4 +1,4 @@
 tests
 lib
 site
-com.*
+.com.*
