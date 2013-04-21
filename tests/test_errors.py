@@ -26,7 +26,8 @@ class TestExceptionsAreRaised(BaseTest):
         episode = Episode(**self.tv.extract_details_from_file(fn))
         episode.title = self.tv.retrieve_episode_name(episode)
         path = self.tv.build_path(episode, organise=False)
-        with open(join(self.files, 'Chuck - 205 - Chuck Versus Tom Sawyer.avi'), 'w'):
+        with open(join(self.files, 'Chuck - 205 - Chuck Versus Tom Sawyer.avi'), 'w') as f:
+            f.write('testing junk')
             assert_raises(EpisodeAlreadyExistsInDirectoryException, self.tv.rename, fn, path)
 
     def test_custom_syntax_snippets_missing_raises_exception(self):
