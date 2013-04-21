@@ -4,3 +4,8 @@ python:
   - 2.7
   - 3.3
 script: make test
+notifications:
+  irc:
+    channels: "irc.freenode.org#tvrenamr"
+    on_success: change
+    on_failure: change
