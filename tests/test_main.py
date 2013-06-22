@@ -163,3 +163,27 @@ class TestMain(BaseTest):
         assert_equal(details['show_name'], 'chuck')
         assert_equal(details['season'], '1')
         assert_equal(details['episodes'][0], '3')
+
+    def test_480_before_season_and_episode(self):
+        details = self.tv.extract_details_from_file('chuck.480.S01E03.mp4')
+        assert_equal(details['show_name'], 'chuck')
+        assert_equal(details['season'], '1')
+        assert_equal(details['episodes'][0], '3')
+
+    def test_480_after_season_and_episode(self):
+        details = self.tv.extract_details_from_file('chuck.S01E03.480.mp4')
+        assert_equal(details['show_name'], 'chuck')
+        assert_equal(details['season'], '1')
+        assert_equal(details['episodes'][0], '3')
+
+    def test_480p_before_season_and_episode(self):
+        details = self.tv.extract_details_from_file('chuck.480p.S01E03.mp4')
+        assert_equal(details['show_name'], 'chuck')
+        assert_equal(details['season'], '1')
+        assert_equal(details['episodes'][0], '3')
+
+    def test_480p_after_season_and_episode(self):
+        details = self.tv.extract_details_from_file('chuck.S01E03.480p.mp4')
+        assert_equal(details['show_name'], 'chuck')
+        assert_equal(details['season'], '1')
+        assert_equal(details['episodes'][0], '3')
